@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="CREATE_DATABASE" runOnChange="true" failOnError="false">
+        <dropTable tableName="POSTAL_CODE"></dropTable>
+        <createTable tableName="POSTAL_CODE">
+            <column name="ID" autoIncrement="true" type="BIGINT(19)"/>
+            <column name="CODE" type="BIGINT(19)"/>
+            <column name="CITY" type="VARCHAR2(255 CHAR)"/>
+            <column name="PLACE" type="VARCHAR2(255 CHAR)"/>
+        </createTable>
+        <addPrimaryKey columnNames="ID" constraintName="PK_POSTAL"
+                       tableName="POSTAL_CODE"/>
+        <createIndex
+                indexName="idx_city"
+                tableName="POSTAL_CODE">
+            <column name="CITY" type="varchar(255)"/>
+        </createIndex>
+        <createIndex
+                indexName="idx_place"
+                tableName="POSTAL_CODE">
+            <column name="PLACE" type="varchar(255)"/>
+        </createIndex>
+    </changeSet>
+
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="IMPORT_DATA"
+               runOnChange="true">
+        <loadUpdateData tableName="POSTAL_CODE"
+                        primaryKey="id" file="postalcodes.csv" relativeToChangelogFile="true"
+                        separator=",">
+        </loadUpdateData>
+    </changeSet>
+
+
+</databaseChangeLog>

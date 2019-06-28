@@ -1,0 +1,35 @@
+
+.input {
+  width: 500px;
+  height: 100px;
+
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.postalcode {
+  margin-top: 9px;
+  border: 1px solid;
+  text-align: center;
+  border-right-color: rgba(58, 42, 42, 1);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+  text-overflow: ellipsis;
+  vertical-align: midlle;
+  width: 100%;
+  font-weight: bold;
+  align-items: center
+}
+
+.postal-form {
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+}
