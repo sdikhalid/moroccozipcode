@@ -1,6 +1,7 @@
-<form class="postal-form" [formGroup]='codesForm'>
-  <mat-form-field>
-    <input placeholder="Choisissez une ville quartier ou avenue..." matInput [matAutocomplete]="auto"
+<div  class="postal-form" >
+<form   [formGroup]='codesForm'>
+  <mat-form-field class="input">
+    <input  placeholder="Choisissez une ville quartier ou avenue..." matInput [matAutocomplete]="auto"
            formControlName='userInput'>
   </mat-form-field>
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
@@ -19,3 +20,4 @@
   <div class="postalcode" *ngIf="selectedCode">  {{ selectedCode.code }} </div>
 </form>
 
+</div>

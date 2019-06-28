@@ -148,7 +148,7 @@
                             <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>../ma.postalcode-client/target/classes/np-app</directory>
+                                    <directory>../ma.postalcode-client/src/main/web/dist/moroccozipcode</directory>
                                 </resource>
                             </resources>
                         </configuration>
