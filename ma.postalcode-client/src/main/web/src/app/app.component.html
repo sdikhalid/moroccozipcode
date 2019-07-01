@@ -18,6 +18,8 @@
   </mat-autocomplete>
 
   <div class="postalcode" *ngIf="selectedCode">  {{ selectedCode.code }} </div>
-</form>
 
+  <div class="postalcode" *ngIf="selectedCode">  {{ selectedCode.city }} | {{ selectedCode.place }}  </div>
+
+</form>
 </div>
