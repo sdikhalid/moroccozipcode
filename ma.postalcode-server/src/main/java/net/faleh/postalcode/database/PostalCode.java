@@ -21,7 +21,7 @@ public class PostalCode {
     @Id
     private long id;
     
-    private final BigInteger code;
+    private final String code;
 
     private final String city;
 
