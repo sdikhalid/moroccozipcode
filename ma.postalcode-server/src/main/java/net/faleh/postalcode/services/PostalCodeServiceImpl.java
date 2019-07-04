@@ -19,10 +19,7 @@ public class PostalCodeServiceImpl implements PostalCodeService {
     @Override
     public List<PostalCode> find(@NotBlank String value) {
         List<PostalCode> result = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(value);
-        while (st.hasMoreElements()) {
-            result.addAll(postalCodRepository.find((String) st.nextElement()));
-        }
+        result.addAll(postalCodRepository.find(value));
         return result;
     }
 }

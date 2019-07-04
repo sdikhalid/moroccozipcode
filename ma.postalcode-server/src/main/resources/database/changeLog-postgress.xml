@@ -1,0 +1,115 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="CREATE_REGION" runOnChange="true" failOnError="false" >
+        <createTable tableName="REGION">
+            <column name="ID" autoIncrement="true" type="BIGSERIAL"/>
+            <column name="name" type="VARCHAR2(255)"/>
+        </createTable>
+        <addPrimaryKey columnNames="ID" constraintName="PK_REGION"
+                       tableName="REGION"/>
+        <createIndex
+                indexName="idx_REGION_name"
+                tableName="REGION">
+            <column name="name" type="varchar(255)"/>
+        </createIndex>
+    </changeSet>
+
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="CREATE_CITY" runOnChange="true" failOnError="false">
+        <createTable tableName="CITY">
+            <column name="ID" autoIncrement="true" type="BIGSERIAL"/>
+            <column name="region_id" type="BIGSERIAL "/>
+            <column name="name" type="VARCHAR2(255)"/>
+        </createTable>
+        <addPrimaryKey columnNames="ID" constraintName="PK_CITY"
+                       tableName="CITY"/>
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="CITY"
+                                 constraintName="fk_city_region"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+        <createIndex
+                indexName="idx_city_name"
+                tableName="CITY">
+            <column name="name" type="varchar(255)"/>
+        </createIndex>
+    </changeSet>
+
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="CREATE_POSTAL_CODE" runOnChange="true"
+               failOnError="false">
+        <createTable tableName="POSTAL_CODE">
+            <column name="ID" autoIncrement="true" type="BIGSERIAL"/>
+            <column name="city_id" type="BIGSERIAL" defaultValue="null"  >
+                <constraints nullable="true" />
+            </column>
+            <column name="region_id" type="BIGSERIAL" defaultValue="null" >
+                <constraints nullable="true" />
+            </column>
+            <column name="name" type="VARCHAR2(255)"/>
+            <column name="code" type="VARCHAR2(255)"/>
+            <column name="type" type="VARCHAR2(255)"/>
+        </createTable>
+        <addPrimaryKey columnNames="ID" constraintName="PK_POSTAL_CODE"
+                       tableName="POSTAL_CODE"/>
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="POSTAL_CODE"
+                                 constraintName="fk_postalcode_region"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"  />
+        <addForeignKeyConstraint baseColumnNames="city_id"
+                                 baseTableName="POSTAL_CODE"
+                                 constraintName="fk_postalcode_city"
+                                 referencedColumnNames="id"
+                                 referencedTableName="city"/>
+        <createIndex
+                indexName="idx_POSTAL_CODE_name"
+                tableName="POSTAL_CODE">
+            <column name="name" type="varchar(255)"/>
+        </createIndex>
+        <createIndex
+                indexName="idx_POSTAL_CODE_code"
+                tableName="POSTAL_CODE">
+            <column name="code" type="varchar(255)"/>
+        </createIndex>
+
+    </changeSet>
+
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="IMPORT_DATA_REGION"
+               runOnChange="true">
+        <loadUpdateData tableName="REGION"
+                        primaryKey="id" file="regions.csv" relativeToChangelogFile="true"
+                        separator=",">
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="IMPORT_DATA_CITY"
+               runOnChange="true">
+        <loadUpdateData tableName="CITY"
+                        primaryKey="id" file="cities.csv" relativeToChangelogFile="true"
+                        separator=",">
+        </loadUpdateData>
+    </changeSet>
+
+    <changeSet logicalFilePath="postalcode" author="kfaleh" id="IMPORT_DATA_DISTRICTS"
+               runOnChange="true">
+        <loadUpdateData tableName="POSTAL_CODE"
+                        primaryKey="id" file="communities.csv" relativeToChangelogFile="true"
+                        separator=",">
+            <column name="city_id" defaultValue="null"></column>
+        </loadUpdateData>
+        <loadUpdateData tableName="POSTAL_CODE"
+                        primaryKey="id" file="districts.csv" relativeToChangelogFile="true"
+                        separator=",">
+            <column name="region_id" defaultValue="null"></column>
+        </loadUpdateData>
+    </changeSet>
+
+
+
+</databaseChangeLog>

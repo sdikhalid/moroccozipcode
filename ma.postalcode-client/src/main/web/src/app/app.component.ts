@@ -44,7 +44,7 @@ export class AppComponent {
 
   displayFn(postalcode: PostalCode) {
     if (postalcode) {
-      return postalcode.place;
+      return postalcode.label;
     }
   }
 
