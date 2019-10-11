@@ -24,3 +24,12 @@
   max-width: 500px;
   width: 100%;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  align-content: center;
+  height: 40;
+  vertical-align: middle;
+}

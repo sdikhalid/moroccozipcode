@@ -1,24 +1,26 @@
-<div  class="postal-form" >
-<form   [formGroup]='codesForm'>
-  <mat-form-field class="input">
-    <input  placeholder="Choisissez une ville quartier ou avenue..." matInput [matAutocomplete]="auto"
-           formControlName='userInput'>
-  </mat-form-field>
-  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-    <mat-option *ngIf="isLoading" class="is-loading">
-      <mat-spinner diameter="50"></mat-spinner>
-    </mat-option>
-    <ng-container *ngIf="!isLoading">
-      <mat-option (onSelectionChange)="selectPostalCode(postalcode)" *ngFor="let postalcode of filteredCodes"
-                  [value]="postalcode">
-        <small>{{postalcode.label}}</small>
+<div class="postal-form">
+  <form [formGroup]='codesForm'>
+    <mat-form-field class="input">
+      <input placeholder="Choisissez une ville quartier ou avenue..." matInput [matAutocomplete]="auto"
+        formControlName='userInput'>
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngIf="isLoading" class="is-loading">
+        <mat-spinner diameter="50"></mat-spinner>
       </mat-option>
-    </ng-container>
-  </mat-autocomplete>
+      <ng-container *ngIf="!isLoading">
+        <mat-option (onSelectionChange)="selectPostalCode(postalcode)" *ngFor="let postalcode of filteredCodes"
+          [value]="postalcode">
+          <small>{{postalcode.label}}</small>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
 
-  <div class="postalcode" *ngIf="selectedCode">  {{ selectedCode.code }} </div>
+    <div class="postalcode" *ngIf="selectedCode"> {{ selectedCode.code }} </div>
 
-  <div class="postalcode" *ngIf="selectedCode">  {{ selectedCode.label }}  </div>
+    <div class="postalcode" *ngIf="selectedCode"> {{ selectedCode.label }} </div>
 
-</form>
+
+  </form>
 </div>
+
