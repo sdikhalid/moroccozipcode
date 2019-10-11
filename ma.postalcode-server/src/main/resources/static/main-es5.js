@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n \n<form class=\"postal-form\" [formGroup]='codesForm'>\n  <mat-form-field >\n    <input placeholder=\"Choisissez une ville quartier ou avenue...\" matInput   [matAutocomplete]=\"auto\" formControlName='userInput'>\n  </mat-form-field>\n  <mat-autocomplete  #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\n    <mat-option *ngIf=\"isLoading\" class=\"is-loading\"><mat-spinner diameter=\"50\"></mat-spinner></mat-option>\n    <ng-container *ngIf=\"!isLoading\">\n      <mat-option (onSelectionChange)=\"selectPostalCode(postalcode)\" *ngFor=\"let postalcode of filteredCodes\" [value]=\"postalcode\">\n        <span>{{ postalcode.city }}</span>\n        <small> | {{postalcode.place}}</small>\n      </mat-option>\n    </ng-container>\n  </mat-autocomplete>\n\n  <div class=\"postalcode\" *ngIf=\"selectedCode\" >  {{ selectedCode.code }} </div>\n</form>\n\n"
+module.exports = "<div class=\"postal-form\">\n  <form [formGroup]='codesForm'>\n    <mat-form-field class=\"input\">\n      <input placeholder=\"Choisissez une ville quartier ou avenue...\" matInput [matAutocomplete]=\"auto\"\n        formControlName='userInput'>\n    </mat-form-field>\n    <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\n      <mat-option *ngIf=\"isLoading\" class=\"is-loading\">\n        <mat-spinner diameter=\"50\"></mat-spinner>\n      </mat-option>\n      <ng-container *ngIf=\"!isLoading\">\n        <mat-option (onSelectionChange)=\"selectPostalCode(postalcode)\" *ngFor=\"let postalcode of filteredCodes\"\n          [value]=\"postalcode\">\n          <small>{{postalcode.label}}</small>\n        </mat-option>\n      </ng-container>\n    </mat-autocomplete>\n\n    <div class=\"postalcode\" *ngIf=\"selectedCode\"> {{ selectedCode.code }} </div>\n\n    <div class=\"postalcode\" *ngIf=\"selectedCode\"> {{ selectedCode.label }} </div>\n\n\n  </form>\n</div>\n\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "\n \n<form class=\"postal-form\" [formGroup]='codesForm'>\n  <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n.input {\r\n\twidth: 500px;\r\n\theight: 100px;\r\n\r\n\r\n\tposition: absolute;\r\n\ttop:0;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\tright: 0;\r\n\t\r\n\tmargin: auto;\r\n}\r\n\r\n.postalcode {\r\n\tmargin-top: 9px;\r\n\tborder: 1px solid;\r\n\ttext-align: center;\r\n\tborder-right-color: rgba(58,42,42,1);\r\n\tborder-radius: 5px;\r\n\tcolor: black;\r\n\ttext-overflow: ellipsis;\r\n\tvertical-align:midlle;\r\n\twidth: 100%;\r\n\tfont-weight: bold;\r\n\talign-items: center\r\n  }\r\n\r\n.postal-form {\r\n\tmin-width: 300px;\r\n\tmax-width: 500px;\r\n\twidth: 100%;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0NBQ0MsWUFBWTtDQUNaLGFBQWE7OztDQUdiLGtCQUFrQjtDQUNsQixLQUFLO0NBQ0wsU0FBUztDQUNULE9BQU87Q0FDUCxRQUFROztDQUVSLFlBQVk7QUFDYjs7QUFFQTtDQUNDLGVBQWU7Q0FDZixpQkFBaUI7Q0FDakIsa0JBQWtCO0NBQ2xCLG9DQUFvQztDQUVwQyxrQkFBa0I7Q0FDbEIsWUFBWTtDQUNaLHVCQUF1QjtDQUN2QixxQkFBcUI7Q0FDckIsV0FBVztDQUNYLGlCQUFpQjtDQUNqQjtFQUNDOztBQUVBO0NBQ0QsZ0JBQWdCO0NBQ2hCLGdCQUFnQjtDQUNoQixXQUFXO0VBQ1YiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uaW5wdXQge1xyXG5cdHdpZHRoOiA1MDBweDtcclxuXHRoZWlnaHQ6IDEwMHB4O1xyXG5cclxuXHJcblx0cG9zaXRpb246IGFic29sdXRlO1xyXG5cdHRvcDowO1xyXG5cdGJvdHRvbTogMDtcclxuXHRsZWZ0OiAwO1xyXG5cdHJpZ2h0OiAwO1xyXG5cdFxyXG5cdG1hcmdpbjogYXV0bztcclxufVxyXG5cclxuLnBvc3RhbGNvZGUge1xyXG5cdG1hcmdpbi10b3A6IDlweDtcclxuXHRib3JkZXI6IDFweCBzb2xpZDtcclxuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XHJcblx0Ym9yZGVyLXJpZ2h0LWNvbG9yOiByZ2JhKDU4LDQyLDQyLDEpO1xyXG5cdC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4O1xyXG5cdGJvcmRlci1yYWRpdXM6IDVweDtcclxuXHRjb2xvcjogYmxhY2s7XHJcblx0dGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XHJcblx0dmVydGljYWwtYWxpZ246bWlkbGxlO1xyXG5cdHdpZHRoOiAxMDAlO1xyXG5cdGZvbnQtd2VpZ2h0OiBib2xkO1xyXG5cdGFsaWduLWl0ZW1zOiBjZW50ZXJcclxuICB9XHJcbiAgXHJcbiAgLnBvc3RhbC1mb3JtIHtcclxuXHRtaW4td2lkdGg6IDMwMHB4O1xyXG5cdG1heC13aWR0aDogNTAwcHg7XHJcblx0d2lkdGg6IDEwMCU7XHJcbiAgfVxyXG4iXX0= */"
+module.exports = "\r\n.input {\r\n  width: 100%;\r\n\r\n}\r\n\r\n.postalcode {\r\n  margin-top: 9px;\r\n  border: 1px solid;\r\n  text-align: center;\r\n  border-right-color: rgba(58, 42, 42, 1);\r\n  border-radius: 5px;\r\n  color: black;\r\n  text-overflow: ellipsis;\r\n  vertical-align: midlle;\r\n  width: 100%;\r\n  font-weight: bold;\r\n  align-items: center\r\n}\r\n\r\n.postal-form {\r\n  min-width: 300px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.footer {\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  align-content: center;\r\n  height: 40;\r\n  vertical-align: middle;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0UsV0FBVzs7QUFFYjs7QUFFQTtFQUNFLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLHVDQUF1QztFQUV2QyxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLHVCQUF1QjtFQUN2QixzQkFBc0I7RUFDdEIsV0FBVztFQUNYLGlCQUFpQjtFQUNqQjtBQUNGOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsU0FBUztFQUNULFdBQVc7RUFDWCxxQkFBcUI7RUFDckIsVUFBVTtFQUNWLHNCQUFzQjtBQUN4QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5pbnB1dCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcblxyXG59XHJcblxyXG4ucG9zdGFsY29kZSB7XHJcbiAgbWFyZ2luLXRvcDogOXB4O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBib3JkZXItcmlnaHQtY29sb3I6IHJnYmEoNTgsIDQyLCA0MiwgMSk7XHJcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIGNvbG9yOiBibGFjaztcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkbGxlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXJcclxufVxyXG5cclxuLnBvc3RhbC1mb3JtIHtcclxuICBtaW4td2lkdGg6IDMwMHB4O1xyXG4gIG1heC13aWR0aDogNTAwcHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5mb290ZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBib3R0b206IDA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xyXG4gIGhlaWdodDogNDA7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -91,7 +91,7 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.displayFn = function (postalcode) {
         if (postalcode) {
-            return postalcode.place;
+            return postalcode.label;
         }
     };
     AppComponent.prototype.selectPostalCode = function (postalcode) {
@@ -279,7 +279,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\repos\postalcode\ma.postalcode-client\src\main\web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\repos\moroccozipcode\ma.postalcode-client\src\main\web\src\main.ts */"./src/main.ts");
 
 
 /***/ })
