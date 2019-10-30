@@ -15,4 +15,8 @@ go to http://localhost:5000/
 
 aplication auto deloyed with heroku on  :
 
-https://moroccozipcode.herokuapp.com/
+https://moroccozipcode.herokuapp.com
+
+# openshift 
+
+http://zipcode-moroccozipcode.e4ff.pro-eu-west-1.openshiftapps.com/
