@@ -22,7 +22,7 @@
         <java.version>1.8</java.version>
         <cxf.version>3.3.2</cxf.version>
         <javax.inject.version>1</javax.inject.version>
-        <jsoup.version>1.12.1</jsoup.version>
+        <jsoup.version>1.14.2</jsoup.version>
         <swagger-ui.version>3.22.2</swagger-ui.version>
         <swagger-jersey2-jaxrs.version>1.5.18</swagger-jersey2-jaxrs.version>
     </properties>
